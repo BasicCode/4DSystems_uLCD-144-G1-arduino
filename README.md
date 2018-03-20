@@ -22,11 +22,11 @@ Download the ZIP file and extract it to the **Arduino/libraries** folder. Open t
 The library supports most of the functions of the Goldilox uLCD driver (Well all of the useful ones anyway). Communication must begin with an initialisation routine, power-on-reset, and baud detect.
 The **initLCD()** accepts the address of the HardwareSerial port, the desired baud rate, and the reset pin being used. This routine handles all of this and waits for the LCD to acknowledge. 
 The example includes a 1000ms delay before running the initialisation routine. While this shouldn't strictly be necessary I have found that it can cause unpredictable behaviour if initialising too early.
-'''
+```
 Goldilox_uLCD uLCD;
 
 uLCD.initLCD(&Serial1, 9600, reset_pin);
-'''
+```
 This routine includes a short delay after power-on-reset while the device stabilises and then you are ready to start sending commands.
 
 ## Notes
