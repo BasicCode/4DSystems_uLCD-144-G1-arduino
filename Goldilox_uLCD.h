@@ -28,7 +28,7 @@ public:
 
 	void initLCD(HardwareSerial *newSerial, int baud, uint8_t rst_pin);
 
-	void putString(int font,int row, int col, uint16_t colour, char string[]);
+	void putString(int font,int row, int col, uint16_t colour, String string);
 
 	void Circle(int pen, int x, int y, uint16_t colour, int radius);
 

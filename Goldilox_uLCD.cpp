@@ -40,7 +40,7 @@ void Goldilox_uLCD::initLCD(HardwareSerial *newSerial, int baud, uint8_t rst_pin
 /*
 * Prints a string to the screen
 */
-void Goldilox_uLCD::putString(int font, int row, int col, uint16_t colour, char string[]) {
+void Goldilox_uLCD::putString(int font, int row, int col, uint16_t colour, String string) {
 	int i = 0;
 
 	sendCommand(LCD_STRING); //Put string
@@ -50,8 +50,8 @@ void Goldilox_uLCD::putString(int font, int row, int col, uint16_t colour, char 
 	sendCommand(highByte(colour));
 	sendCommand(lowByte(colour));
 
-	while (string[i] != 0) {
-		sendCommand((byte)string[i++]);
+	for(char& c : string) {
+		sendCommand(c);
 	}
 
 	sendCommand((byte)0x00); //Terminator
